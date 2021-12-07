@@ -1,0 +1,55 @@
+ARYAN Ketan Patel
+
+
+create table it_calculation (Rec_no number(3), Num1 number(5,2) not null, Num2 number(5,2) not null, Total number(5,2),
+Percent number(5,2) default(50.00));
+
+alter table it_calculation add Multiply number(10,2);
+
+alter table it_calculation add constraint Rec_no primary key(Rec_no);
+
+desc it_calculation;
+
+insert into it_calculation values (1, 50, 25, null, null, null);
+insert into it_calculation values (2, 45, 75, null, null, null);
+insert into it_calculation values (3, 64, 88, null, null, null);
+insert into it_calculation values (4, 67, 25, null, null ,null);
+insert into it_calculation values (5, 94, 78, null, null, null);
+insert into it_calculation values (6, 56, 142, null, null, null);
+insert into it_calculation values (7, 48, 56, null, null, null);
+insert into it_calculation values (8, 81, 42, null, null, null);
+insert into it_calculation values (9, 66, 74, null, null, null);
+insert into it_calculation values (10, 23, 99, null, null, null);
+
+select * from it_calculation;
+
+O/P:
+
+REC_NO	NUM1	NUM2	TOTAL	PERCENT	MULTIPLY
+1	50	25	75	3750	1250
+2	45	75	120	6000	3375
+3	64	88	152	7600	5632
+4	67	25	92	4600	1675
+6	56	45	101	5050	2520
+7	48	56	104	5200	2688
+8	81	42	123	6150	3402
+9	66	74	140	7000	4884
+10	150	99	249	12450	14850
+
+update it_calculation set Total=num1+num2;
+
+update it_calculation set Percent=(total*100)/2;
+
+update it_calculation set num2 = 45 where rec_no =6;
+
+alter table it_calculation modify ( Percent number(10,2));
+
+update it_calculation set num1=150 where rec_no=5 or rec_no=10;
+
+update it_calculation set Total=num1+num2 where rec_no=5 or rec_no=10;
+
+update it_calculation set Percent=(total*100)/2 where rec_no=5 or rec_no=10;
+
+update it_calculation set Multiply=num1*num2;
+
+delete from it_calculation where rec_no=5;
